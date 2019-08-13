@@ -25,7 +25,7 @@ Emulator::Emulator(void) :
 	, m_CurrentRamBank(0)
 	, m_DebugPause(false)
 	, m_DebugPausePending(false)
-	, m_TimeToPause(NULL)
+	, m_TimeToPause(nullptr)
 	, m_TotalOpcodes(0)
 	, m_DoLogging(false)
 {
