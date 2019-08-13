@@ -1,0 +1,11 @@
+# Visual Studio 2019
+.vs/
+Release/
+Debug/
+
+# Builds and intermediate
+Builds/
+Intermediate/
+
+# ROMS folder
+ROMS/
