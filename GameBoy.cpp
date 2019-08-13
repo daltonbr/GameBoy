@@ -12,31 +12,34 @@
 #endif
 
 static const int windowWidth = 160;
-static const int windowHeight = 144 ;
+static const int windowHeight = 144;
+
+static const char* windowTitle = "GameBoy";
+static SDL_Window* window;
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-static int total = 0 ;
-static int timer = 0 ;
-static int current = 0 ;
-static int counter = 0 ;
-static bool first = true ;
+static int total = 0;
+static int timer = 0;
+static int current = 0;
+static int counter = 0;
+static bool first = true;
 
-static void CheckFPS( )
+static void CheckFPS()
 {
 	if (first)
 	{
-		first = false ;
-		timer = SDL_GetTicks() ;
+		first = false;
+		timer = SDL_GetTicks();
 	}
 
-	counter++ ;
-	current = SDL_GetTicks() ;
+	counter++;
+	current = SDL_GetTicks();
 	if ((timer + 1000) < current)
 	{
-		timer = current ;
-		total = counter ;
-		counter = 0 ;
+		timer = current;
+		total = counter;
+		counter = 0;
 
 		//OutputDebugStr(outputMessage);
 	}
@@ -44,152 +47,172 @@ static void CheckFPS( )
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-static void DoRender( )
+static void DoRender()
 {
-	GameBoy* gb = GameBoy::GetSingleton() ;
-	gb->RenderGame( ) ;
+	GameBoy* gb = GameBoy::GetSingleton();
+	gb->RenderGame();
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-GameBoy* GameBoy::m_Instance = 0 ;
+GameBoy* GameBoy::m_Instance = nullptr;
 
-GameBoy* GameBoy::CreateInstance( )
+GameBoy* GameBoy::CreateInstance()
 {
 	if (0 == m_Instance)
 	{
-		m_Instance = new GameBoy( ) ;
-		m_Instance->Initialize( ) ;
+		m_Instance = new GameBoy();
+		m_Instance->Initialize();
 	}
-	return m_Instance ;
+	return m_Instance;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-GameBoy* GameBoy::GetSingleton( )
+GameBoy* GameBoy::GetSingleton()
 {
-	return m_Instance ;
+	return m_Instance;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 GameBoy::GameBoy(void) :
-	m_Emulator(NULL)
+	m_Emulator(nullptr)
 {
-	m_Emulator = new Emulator( ) ;
-	m_Emulator->LoadRom("ROMS/mario2.gb") ;
-	m_Emulator->InitGame( DoRender ) ;
+	m_Emulator = new Emulator();
+	m_Emulator->LoadRom("ROMS/Tetris.gb");
+	m_Emulator->InitGame(DoRender);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-bool GameBoy::Initialize( )
+bool GameBoy::Initialize()
 {
-	return CreateSDLWindow( ) ;
+	return CreateSDLWindow();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-void GameBoy::StartEmulation( )
+void GameBoy::StartEmulation()
 {
-	bool quit = false ;
+	bool quit = false;
 	SDL_Event event;
 
-	float fps = 59.73 ;
-	float interval = 1000 ;
-	interval /= fps ;
+	float fps = 59.73;
+	float interval = 1000;
+	interval /= fps;
 
-	unsigned int time2 = SDL_GetTicks( ) ;
+	unsigned int time2 = SDL_GetTicks();
 
 	while (!quit)
 	{
-		while( SDL_PollEvent( &event ) )
+		while (SDL_PollEvent(&event))
 		{
-			HandleInput( event ) ;
+			HandleInput(event);
 
-			if( event.type == SDL_QUIT )
+			if (event.type == SDL_QUIT)
 			{
 				quit = true;
 			}
 		}
 
-		unsigned int current = SDL_GetTicks( ) ;
+		unsigned int current = SDL_GetTicks();
 
-		if( (time2 + interval) < current )
+		if ((time2 + interval) < current)
 		{
-			CheckFPS( ) ;
-			m_Emulator->Update( ) ;
-			time2 = current ;
+			CheckFPS();
+			m_Emulator->Update();
+			time2 = current;
 		}
 
 	}
-	SDL_Quit( ) ;
+	SDL_Quit();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 GameBoy::~GameBoy(void)
 {
-	delete m_Emulator ;
+	delete m_Emulator;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-void GameBoy::RenderGame( )
+void GameBoy::RenderGame()
 {
-	//EmulationLoop() ;
- 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
- 	glLoadIdentity();
- 	glRasterPos2i(-1, 1);
+	//EmulationLoop();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glLoadIdentity();
+	glRasterPos2i(-1, 1);
 	glPixelZoom(1, -1);
- 	glDrawPixels(160, 144, GL_RGB, GL_UNSIGNED_BYTE, m_Emulator->m_ScreenData);
-	SDL_GL_SwapBuffers( ) ;
+	glDrawPixels(160, 144, GL_RGB, GL_UNSIGNED_BYTE, m_Emulator->m_ScreenData);
 
+	//SDL_GL_SwapBuffers( );
+	/* This makes our buffer swap syncronized with the monitor's vertical refresh */
+
+	//SDL_GL_SetSwapInterval(1);
+
+	/* Swap our buffer to display the current contents of buffer on screen */
+	SDL_GL_SwapWindow(window);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 void GameBoy::SetKeyPressed(int key)
 {
-	m_Emulator->KeyPressed(key) ;
+	m_Emulator->KeyPressed(key);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 void GameBoy::SetKeyReleased(int key)
 {
-	m_Emulator->KeyReleased(key) ;
+	m_Emulator->KeyReleased(key);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-bool GameBoy::CreateSDLWindow( )
+bool GameBoy::CreateSDLWindow()
 {
-	if( SDL_Init( SDL_INIT_EVERYTHING ) < 0 )
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
-		return false ;
+		return false;
 	}
-	if( SDL_SetVideoMode( windowWidth, windowHeight, 8, SDL_OPENGL ) == NULL )
+
+	window = SDL_CreateWindow(windowTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+		windowWidth, windowHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+
+	if (window == nullptr)
 	{
-		return false ;
+		printf("Could not create window: %s\n", SDL_GetError());
+		return true;
 	}
+
+	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
 
 	InitGL();
 
-	SDL_WM_SetCaption( "OpenGL Test", NULL );
-	return true ;
+	//SDL_GL_DeleteContext(glcontext);
+
+	// Close and destroy the window
+	//SDL_DestroyWindow(window);
+
+	// Clean up
+	//SDL_Quit();
+
+	//SDL_WM_SetCaption( "OpenGL Test", NULL );
+	return true;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-void GameBoy::InitGL( )
+void GameBoy::InitGL()
 {
 	glViewport(0, 0, windowWidth, windowHeight);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glOrtho(0, windowWidth, windowHeight, 0, -1.0, 1.0);
 	glClearColor(0, 0, 0, 1.0);
-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glShadeModel(GL_FLAT);
 
 	glEnable(GL_TEXTURE_2D);
@@ -203,43 +226,43 @@ void GameBoy::InitGL( )
 
 void GameBoy::HandleInput(SDL_Event& event)
 {
-	if( event.type == SDL_KEYDOWN )
+	if (event.type == SDL_KEYDOWN)
 	{
-		int key = -1 ;
-		switch( event.key.keysym.sym )
+		int key = -1;
+		switch (event.key.keysym.sym)
 		{
-			case SDLK_a : key = 4 ; break ;
-			case SDLK_s : key = 5 ; break ;
-			case SDLK_RETURN : key = 7 ; break ;
-			case SDLK_SPACE : key = 6; break ;
-			case SDLK_RIGHT : key = 0 ; break ;
-			case SDLK_LEFT : key = 1 ; break ;
-			case SDLK_UP : key = 2 ; break ;
-			case SDLK_DOWN : key = 3 ; break ;
+		case SDLK_a: key = 4; break;
+		case SDLK_s: key = 5; break;
+		case SDLK_RETURN: key = 7; break;
+		case SDLK_SPACE: key = 6; break;
+		case SDLK_RIGHT: key = 0; break;
+		case SDLK_LEFT: key = 1; break;
+		case SDLK_UP: key = 2; break;
+		case SDLK_DOWN: key = 3; break;
 		}
 		if (key != -1)
 		{
-			SetKeyPressed(key) ;
+			SetKeyPressed(key);
 		}
 	}
 	//If a key was released
-	else if( event.type == SDL_KEYUP )
+	else if (event.type == SDL_KEYUP)
 	{
-		int key = -1 ;
-		switch( event.key.keysym.sym )
+		int key = -1;
+		switch (event.key.keysym.sym)
 		{
-			case SDLK_a : key = 4 ; break ;
-			case SDLK_s : key = 5 ; break ;
-			case SDLK_RETURN : key = 7 ; break ;
-			case SDLK_SPACE : key = 6; break ;
-			case SDLK_RIGHT : key = 0 ; break ;
-			case SDLK_LEFT : key = 1 ; break ;
-			case SDLK_UP : key = 2 ; break ;
-			case SDLK_DOWN : key = 3 ; break ;
+		case SDLK_a: key = 4; break;
+		case SDLK_s: key = 5; break;
+		case SDLK_RETURN: key = 7; break;
+		case SDLK_SPACE: key = 6; break;
+		case SDLK_RIGHT: key = 0; break;
+		case SDLK_LEFT: key = 1; break;
+		case SDLK_UP: key = 2; break;
+		case SDLK_DOWN: key = 3; break;
 		}
 		if (key != -1)
 		{
-			SetKeyReleased(key) ;
+			SetKeyReleased(key);
 		}
 	}
 }

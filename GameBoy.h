@@ -2,7 +2,7 @@
 #ifndef _GAMEBOY_H
 #define _GAMEBOY_H
 
-class Emulator ;
+class Emulator;
 
 #include "Emulator.h"
 #ifdef WIN32
@@ -13,28 +13,28 @@ class Emulator ;
 class GameBoy
 {
 public:
-	static				GameBoy*				CreateInstance				( ) ;
-	static				GameBoy*				GetSingleton				( ) ;
+	static				GameBoy* CreateInstance();
+	static				GameBoy* GetSingleton();
 
-												~GameBoy					(void);
+	~GameBoy(void);
 
-						void					RenderGame					( ) ;
-						bool					Initialize					( ) ;
-						void					SetKeyPressed				( int key ) ;
-						void					SetKeyReleased				( int key ) ;
-						void					StartEmulation				( ) ;
-						void					HandleInput					( SDL_Event& event ) ;
+	void					RenderGame();
+	bool					Initialize();
+	void					SetKeyPressed(int key);
+	void					SetKeyReleased(int key);
+	void					StartEmulation();
+	void					HandleInput(SDL_Event& event);
 private:
-												GameBoy						(void);
+	GameBoy(void);
 
-						bool					CreateSDLWindow				( ) ;
+	bool					CreateSDLWindow();
 
-						void					InitGL						( ) ;
+	void					InitGL();
 
-	static				GameBoy*				m_Instance ;
+	static				GameBoy* m_Instance;
 
 
-						Emulator*				m_Emulator ;
+	Emulator* m_Emulator;
 
 
 };
