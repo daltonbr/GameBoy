@@ -1,0 +1,404 @@
+# depslib dependency file v1.0
+1212582843 source:c:\projects\lee\gameboy\gameboy\emulator.jumptable.cpp
+	"Config.h"
+	"Emulator.h"
+
+1212583598 h"
+
+1212582730 c:\projects\lee\gameboy\gameboy\config.h
+	<string>
+	<vector>
+	"Logging.h"
+
+1212583587 "
+
+1212582718 c:\projects\lee\gameboy\gameboy\logging.h
+
+1212582844 c:\projects\lee\gameboy\gameboy\emulator.h
+
+1212582844 source:c:\projects\lee\gameboy\gameboy\emulator.cpp
+	"Config.h"
+	"Emulator.h"
+	<Windows.h>
+
+1212582844 >
+
+1212582851 source:c:\projects\lee\gameboy\gameboy\emulator.i8080cpu.cpp
+	"Config.h"
+	"Emulator.h"
+
+1212562218 source:c:\projects\lee\gameboy\gameboy\filewriter.cpp
+	"config.h"
+	"FileWriter.h"
+	<fstream>
+
+1212562218 
+
+1212582879 c:\projects\lee\gameboy\gameboy\filewriter.h
+
+1212583598 source:c:\projects\lee\gameboy\gameboy\gameboy.cpp
+	"Config.h"
+	<Windows.h>
+	"GameBoy.h"
+	"SDL_syswm.h"
+	"Emulator.h"
+
+1212582879 c:\projects\lee\gameboy\gameboy\gameboy.h
+	"sdl.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 e.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1212562216 g_minimal.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_platform.h
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_dreamcast.h
+	"SDL_platform.h"
+
+1212562216 orm.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_macos.h
+	"SDL_platform.h"
+	<MacTypes.h>
+
+1212562216 h>
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1212562216 ityMacros.h>
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_symbian.h
+	"SDL_platform.h"
+	<stdarg.h>
+	<stddef.h>
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_os2.h
+	"SDL_platform.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_config_minimal.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\begin_code.h
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\close_code.h
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_endian.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_keysym.h
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1212562216 .h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1212562216 c:\projects\lee\gameboy\gameboy\sdl\include\sdl_syswm.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_version.h"
+	"begin_code.h"
+	<X11/Xlib.h>
+	<X11/Xatom.h>
+	<microwin/nano-X.h>
+	<windows.h>
+	<sys/neutrino.h>
+	<Ph.h>
+	"close_code.h"
+
+1212582880 source:c:\projects\lee\gameboy\gameboy\logging.cpp
+	"config.h"
+	<string>
+	<windows.h>
+	"Logging.h"
+	"FileWriter.h"
+
+1212582880 r.h"
+
+1212562218 source:c:\projects\lee\gameboy\gameboy\config.cpp
+	"Config.h"
+
+1212583587 source:c:\projects\lee\gameboy\gameboy\winmain.cpp
+	"config.h"
+	<windows.h>
+	"GameBoy.h"
+
+1216494483 source:/home/mike/projects/gameboy/GameBoy/CPUEmu.cpp
+	"CPUEmu.h"
+	"LogMessages.h"
+	<assert.h>
+	<stdio.h>
+	"useful_utils.h"
+
+1216668923 /home/mike/projects/gameboy/GameBoy/CPUEmu.h
+	<string>
+	<vector>
+
+1216140467 /home/mike/projects/gameboy/GameBoy/LogMessages.h
+
+1216468783 /home/mike/projects/gameboy/GameBoy/useful_utils.h
+	<string.h>
+
+1216235832 source:/home/mike/projects/gameboy/GameBoy/GameSettings.cpp
+	"GameSettings.h"
+	"LogMessages.h"
+	"useful_utils.h"
+	<assert.h>
+	<fstream>
+
+1216235832 /home/mike/projects/gameboy/GameBoy/GameSettings.h
+	<map>
+	<string>
+
+1216668923 source:/home/mike/projects/gameboy/GameBoy/GameboyEmu.cpp
+	"GameboyEmu.h"
+	"LogMessages.h"
+	"GameSettings.h"
+	"CPUEmu.h"
+	<assert.h>
+
+1216468783 /home/mike/projects/gameboy/GameBoy/GameboyEmu.h
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	"SDL.h"
+	"SDL_opengl.h"
+
+1216468783 source:/home/mike/projects/gameboy/GameBoy/LogMessages.cpp
+	"LogMessages.h"
+	<assert.h>
+	<stdio.h>
+	<time.h>
+	<windows.h>
+
+1216493879 source:/home/mike/projects/gameboy/GameBoy/Main.cpp
+	"GameSettings.h"
+	"LogMessages.h"
+	"GameboyEmu.h"
+	<assert.h>
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	"SDL.h"
+	"SDL_opengl.h"
+
+1217352384 source:/home/mike/projects/gameboy/GameBoy/Emulator.JumpTable.cpp
+	"Config.h"
+	"Emulator.h"
+	<stdio.h>
+
+1216839093 source:/home/mike/projects/gameboy/GameBoy/Emulator.i8080Cpu.cpp
+	"Config.h"
+	"Emulator.h"
+
+1216140467 source:/home/mike/projects/gameboy/GameBoy/Config.cpp
+	"Config.h"
+
+1216839093 /home/mike/projects/gameboy/GameBoy/Config.h
+	<string>
+	<vector>
+	<stdio.h>
+	<assert.h>
+	"LogMessages.h"
+
+1217352384 /home/mike/projects/gameboy/GameBoy/Emulator.h
+
+1217754626 source:/home/mike/projects/gameboy/GameBoy/Emulator.cpp
+	"Config.h"
+	"Emulator.h"
+
+1217352447 source:/home/mike/projects/gameboy/GameBoy/GameBoy.cpp
+	"Config.h"
+	"Emulator.h"
+	"GameBoy.h"
+	<Windows.h>
+	"SDL.h"
+	"SDL_opengl.h"
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+
+1217266357 /home/mike/projects/gameboy/GameBoy/GameBoy.h
+	"Emulator.h"
+	"SDL.h"
+	<SDL/SDL.h>
+
+1216750124 source:/home/mike/projects/gameboy/GameBoy/WinMain.cpp
+	"Config.h"
+	"GameBoy.h"
+	"GameSettings.h"
+

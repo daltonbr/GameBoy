@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GameBoy" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="GameBoy" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug Win32" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add directory="C:/Projects/Lee/GameBoy/GameBoy/SDL/include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="C:/Projects/Lee/GameBoy/GameBoy/SDL/include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="/usr/lib/libGL.so" />
+					<Add library="/usr/lib/libSDL.so" />
+					<Add library="/usr/lib/libSDLmain.a" />
+					<Add directory="C:/Projects/Lee/GameBoy/GameBoy/SDL/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="GameBoy" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release Win32" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add directory="C:/MyProjects/GameBoy/GameBoy/SDL/include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="C:/MyProjects/GameBoy/GameBoy/SDL/include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="/usr/lib/libGL.so" />
+					<Add library="/usr/lib/libSDL.so" />
+					<Add directory="C:/MyProjects/GameBoy/GameBoy/SDL/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="Config.cpp" />
+		<Unit filename="Config.h" />
+		<Unit filename="Emulator.JumpTable.cpp" />
+		<Unit filename="Emulator.cpp" />
+		<Unit filename="Emulator.h" />
+		<Unit filename="Emulator.i8080Cpu.cpp" />
+		<Unit filename="GameBoy.cpp" />
+		<Unit filename="GameBoy.h" />
+		<Unit filename="GameSettings.cpp" />
+		<Unit filename="GameSettings.h" />
+		<Unit filename="LogMessages.cpp" />
+		<Unit filename="LogMessages.h" />
+		<Unit filename="WinMain.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug Win32" />
+	<File name="Config.h" open="1" top="0" tabpos="2">
+		<Cursor position="129" topLine="2" />
+	</File>
+	<File name="Emulator.JumpTable.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="20656" topLine="427" />
+	</File>
+	<File name="Emulator.cpp" open="1" top="1" tabpos="4">
+		<Cursor position="25715" topLine="1120" />
+	</File>
+	<File name="Emulator.h" open="1" top="0" tabpos="7">
+		<Cursor position="2286" topLine="72" />
+	</File>
+	<File name="GameBoy.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="1645" topLine="72" />
+	</File>
+	<File name="GameBoy.h" open="1" top="0" tabpos="5">
+		<Cursor position="97" topLine="0" />
+	</File>
+	<File name="WinMain.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="67" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
