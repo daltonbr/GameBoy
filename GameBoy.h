@@ -10,6 +10,7 @@ class Emulator;
 #else
 #include <SDL/SDL.h>
 #endif
+
 class GameBoy
 {
 public:
@@ -18,12 +19,12 @@ public:
 
 	~GameBoy(void);
 
-	void					RenderGame();
+	void					RenderGame() const;
 	bool					Initialize();
-	void					SetKeyPressed(int key);
-	void					SetKeyReleased(int key);
-	void					StartEmulation();
-	void					HandleInput(SDL_Event& event);
+	void					SetKeyPressed(int key) const;
+	void					SetKeyReleased(int key) const;
+	void					StartEmulation() const;
+	void					HandleInput(SDL_Event& event) const;
 private:
 	GameBoy(void);
 
@@ -33,10 +34,7 @@ private:
 
 	static				GameBoy* m_Instance;
 
-
 	Emulator* m_Emulator;
-
-
 };
 
 #endif

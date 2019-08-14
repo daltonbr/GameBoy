@@ -2,22 +2,22 @@
 #ifndef _LOGMESSAGE_H
 #define _LOGMESSAGE_H
 
-struct _iobuf ;
+struct _iobuf;
 
 class LogMessage
 {
 public:
-	static	LogMessage*				CreateInstance						( ) ;
-	static	LogMessage*				GetSingleton						( ) ;
+	static	LogMessage* CreateInstance();
+	static	LogMessage* GetSingleton();
 
-			void					DoLogMessage						( const char* message, bool logToConsole ) ;
+	void					DoLogMessage(const char* message, bool logToConsole) const;
 
-									~LogMessage							(void);
+	~LogMessage(void);
 private:
-									LogMessage							(void);
+	LogMessage(void);
 
-	static	LogMessage*				m_Instance	;
-			_iobuf*					m_LogFile ;
+	static	LogMessage* m_Instance;
+	_iobuf* m_LogFile;
 };
 
-#endif //
+#endif

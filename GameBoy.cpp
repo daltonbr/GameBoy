@@ -17,8 +17,6 @@ static const int windowHeight = 144;
 static const char* windowTitle = "GameBoy";
 static SDL_Window* window;
 
-///////////////////////////////////////////////////////////////////////////////////////
-
 static int total = 0;
 static int timer = 0;
 static int current = 0;
@@ -45,21 +43,17 @@ static void CheckFPS()
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////
-
 static void DoRender()
 {
 	GameBoy* gb = GameBoy::GetSingleton();
 	gb->RenderGame();
 }
 
-///////////////////////////////////////////////////////////////////////////////////////
-
 GameBoy* GameBoy::m_Instance = nullptr;
 
 GameBoy* GameBoy::CreateInstance()
 {
-	if (0 == m_Instance)
+	if (m_Instance == nullptr)
 	{
 		m_Instance = new GameBoy();
 		m_Instance->Initialize();
@@ -67,14 +61,10 @@ GameBoy* GameBoy::CreateInstance()
 	return m_Instance;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
 GameBoy* GameBoy::GetSingleton()
 {
 	return m_Instance;
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////
 
 GameBoy::GameBoy(void) :
 	m_Emulator(nullptr)
@@ -84,15 +74,12 @@ GameBoy::GameBoy(void) :
 	m_Emulator->InitGame(DoRender);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
 bool GameBoy::Initialize()
 {
 	return CreateSDLWindow();
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-void GameBoy::StartEmulation()
+void GameBoy::StartEmulation() const
 {
 	bool quit = false;
 	SDL_Event event;
@@ -128,16 +115,12 @@ void GameBoy::StartEmulation()
 	SDL_Quit();
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
 GameBoy::~GameBoy(void)
 {
 	delete m_Emulator;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-void GameBoy::RenderGame()
+void GameBoy::RenderGame() const
 {
 	//EmulationLoop();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -155,21 +138,15 @@ void GameBoy::RenderGame()
 	SDL_GL_SwapWindow(window);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-void GameBoy::SetKeyPressed(int key)
+void GameBoy::SetKeyPressed(const int key) const
 {
 	m_Emulator->KeyPressed(key);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-void GameBoy::SetKeyReleased(int key)
+void GameBoy::SetKeyReleased(const int key) const
 {
 	m_Emulator->KeyReleased(key);
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////
 
 bool GameBoy::CreateSDLWindow()
 {
@@ -187,11 +164,11 @@ bool GameBoy::CreateSDLWindow()
 		return true;
 	}
 
-	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
+	SDL_GLContext glContext = SDL_GL_CreateContext(window);
 
 	InitGL();
 
-	//SDL_GL_DeleteContext(glcontext);
+	//SDL_GL_DeleteContext(glContext);
 
 	// Close and destroy the window
 	//SDL_DestroyWindow(window);
@@ -202,8 +179,6 @@ bool GameBoy::CreateSDLWindow()
 	//SDL_WM_SetCaption( "OpenGL Test", NULL );
 	return true;
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////
 
 void GameBoy::InitGL()
 {
@@ -222,9 +197,7 @@ void GameBoy::InitGL()
 	glDisable(GL_BLEND);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-void GameBoy::HandleInput(SDL_Event& event)
+void GameBoy::HandleInput(SDL_Event& event) const
 {
 	if (event.type == SDL_KEYDOWN)
 	{
@@ -245,7 +218,7 @@ void GameBoy::HandleInput(SDL_Event& event)
 			SetKeyPressed(key);
 		}
 	}
-	//If a key was released
+	// If a key was released
 	else if (event.type == SDL_KEYUP)
 	{
 		int key = -1;
@@ -266,5 +239,3 @@ void GameBoy::HandleInput(SDL_Event& event)
 		}
 	}
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////

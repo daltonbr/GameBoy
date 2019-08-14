@@ -7,11 +7,11 @@ int main(int argc, char* argv[])
 	LogMessage* log = LogMessage::CreateInstance();
 	GameSettings* settings = GameSettings::CreateInstance();
 
-	GameBoy* gb = GameBoy::CreateInstance();
+	GameBoy* gameboy = GameBoy::CreateInstance();
 
-	gb->StartEmulation();
+	gameboy->StartEmulation();
 
-	delete gb;
+	delete gameboy;
 	delete settings;
 	delete log;
 
